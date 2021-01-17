@@ -1,6 +1,6 @@
 # Twitter Contribution Graph
 
-Twitter contribution graph displays all your twitter history the same way GitHub does by using your username.
+Twitter contribution graph displays your twitter history the same way GitHub does by using your username.
 
 Props to @sallar and @ptmt.
 
