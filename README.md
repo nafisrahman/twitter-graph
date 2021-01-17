@@ -1,12 +1,14 @@
-# Twitter Contribution Chart
+# Twitter Contribution Graph
 
-Twitter contribution chart displays all your twitter history the same way GitHub does.
+Twitter contribution graph displays all your twitter history the same way GitHub does by using your username.
 
-Props to @sallar.
+Props to @sallar and @ptmt.
 
 Demo:
 
-![contributions 2](https://user-images.githubusercontent.com/1004115/41119807-7531e5c8-6a9c-11e8-9295-86d5b12cdd89.png)
+![Demo](https://i.imgur.com/FOq6fUb.gif)
 
 
-This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
+
+
+This project was created with [Create React App](https://github.com/facebookincubator/create-react-app).
