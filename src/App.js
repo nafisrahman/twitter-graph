@@ -6,12 +6,23 @@ import './App.css'
 import { drawContributions } from 'twitter-contributions-canvas'
 
 class App extends React.Component {
+  availableThemes = {
+    standard: 'GitHub',
+    halloween: 'Halloween',
+    teal: 'Teal',
+    leftPad: '@left_pad',
+    dracula: 'Dracula',
+    blue: 'Blue',
+    panda: 'Panda 🐼',
+    sunny: 'Sunny',
+  }
+
   state = {
     username: '',
     rawData: null,
     parsedData: null,
     error: null,
-    theme: 'blue',
+    theme: 'standard',
   }
 
   canvas = React.createRef()
@@ -19,6 +30,12 @@ class App extends React.Component {
   handleUsernameChange = (e) => {
     this.setState({
       username: e.target.value,
+    })
+  }
+
+  handleThemeChange = (e) => {
+    this.setState({
+      theme: e.target.value,
     })
   }
 
@@ -80,6 +97,20 @@ class App extends React.Component {
                 value={this.state.username}
                 onChange={this.handleUsernameChange}
               />
+            </div>
+            <div className='form-control'>
+              <label htmlFor='theme'>Theme : </label>
+              <select
+                // placeholder='Your Twitter Username'
+                value={this.state.theme}
+                onChange={this.handleThemeChange}
+              >
+                {Object.keys(this.availableThemes).map((theme) => (
+                  <option key={theme} value={theme}>
+                    {this.availableThemes[theme]}
+                  </option>
+                ))}
+              </select>
             </div>
             <button type='submit'>Submit </button>
           </form>
