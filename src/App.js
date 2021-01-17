@@ -46,31 +46,32 @@ class App extends React.Component {
       this.setState({ error: 'No username found' })
       return
     }
-    axios
-      .get(
-        `https://cwyurr5wr7.execute-api.us-east-1.amazonaws.com/test/calltwitter?username=${this.state.username}`
-      )
-      .then((res) => {
-        console.log(res.data)
-        this.setState(
-          { error: null, rawData: res.data, parsedData: null },
-          () => {
-            setTimeout(() => {
-              parseJsonData(this.state.rawData, (newData) => {
-                this.setState({ parsedData: newData }, () => this.drawCanvas())
-              })
-            }, 300)
-          }
+    try {
+      axios
+        .get(
+          `https://cwyurr5wr7.execute-api.us-east-1.amazonaws.com/test/calltwitter?username=${this.state.username}`
         )
-      })
-      .catch((error) => {
-        console.log(error)
-      })
+        .then((res) => {
+          this.setState(
+            { error: null, rawData: res.data, parsedData: null },
+            () => {
+              setTimeout(() => {
+                parseJsonData(this.state.rawData, (newData) => {
+                  this.setState({ parsedData: newData }, () =>
+                    this.drawCanvas()
+                  )
+                })
+              }, 300)
+            }
+          )
+        })
+    } catch (error) {
+      this.setState({ error: error })
+    }
   }
 
   drawCanvas() {
     if (this.state.parsedData) {
-      // console.log(this.state.parsedData)
       const canvasData = prepareToCanvasData(this.state.parsedData)
       drawContributions(this.canvas.current, {
         data: canvasData,
@@ -101,7 +102,6 @@ class App extends React.Component {
             <div className='form-control'>
               <label htmlFor='theme'>Theme : </label>
               <select
-                // placeholder='Your Twitter Username'
                 value={this.state.theme}
                 onChange={this.handleThemeChange}
               >
