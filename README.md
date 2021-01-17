@@ -11,4 +11,4 @@ Demo:
 
 
 
-This project was created with [Create React App](https://github.com/facebookincubator/create-react-app).
+This project was created using [React](https://reactjs.org/).
