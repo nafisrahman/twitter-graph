@@ -1,3 +1,5 @@
+// file used in AWS Lambda function
+
 exports.handler = (event, context, callback) => {
   var Twitter = require('twitter')
   require('dotenv/config')
