@@ -1,5 +1,3 @@
-// file used in AWS Lambda function
-
 exports.handler = (event, context, callback) => {
   var Twitter = require('twitter')
   require('dotenv/config')
@@ -27,7 +25,9 @@ exports.handler = (event, context, callback) => {
           statusCode: 200,
           isBase64Encoded: false,
           headers: {
-            'x-custom-header': 'my custom header value',
+            'Access-Control-Allow-Headers': 'Content-Type',
+            'Access-Control-Allow-Origin': '*',
+            'Access-Control-Allow-Methods': 'OPTIONS,POST,GET',
           },
           body: JSON.stringify(tweets),
         }
