@@ -1,8 +1,10 @@
 # Twitter Contribution Graph
 
-Twitter contribution graph displays your twitter history the same way GitHub does by using your username.
+Twitter contribution graph displays all your twitter history the same way GitHub does by using your username.
 
 Props to @sallar and @ptmt.
+
+**Disclaimer:** This graph only uses recent 200 tweets because Twitter API only allows 200 tweets max per call.
 
 Demo:
 
@@ -11,4 +13,4 @@ Demo:
 
 
 
-This project was created using [React](https://reactjs.org/).
+This project was created with [Create React App](https://github.com/facebookincubator/create-react-app).
